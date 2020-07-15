@@ -14,20 +14,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/agents")
 public class AgentController
-
-    //GET /agents/agent/{id} - Returns the agent and their customers with the given agent id
 {
     @Autowired
     private AgentServices agentService;
 
     // http://localhost:2019/agents/agent/{id}
 
-    @GetMapping(value = "agent/{agentcode}", produces = "application/json")
-    public ResponseEntity<?> findAgentById(@PathVariable long agentcode)
+    @GetMapping(value = "agent/{id}", produces = "application/json")
+    public ResponseEntity<?> findAgentById(@PathVariable long id)
     {
-            Agent a = agentService.findById(agentcode);
+            Agent a = agentService.findById(id);
             return new ResponseEntity<>(a, HttpStatus.OK);
     }
+
+
 
 
 
